@@ -11,8 +11,9 @@
         <form method="POST" action="result.php" class="flex flex-col gap-4" onsubmit="return validateCollatz()">
             <input type="hidden" name="choice" value="4">
 
-            <label class="text-gray-700 font-semibold" for="startNum">Enter Starting Number:</label>
+            <label class="text-gray-700 font-semibold" for="startNum">Enter Odd Number for Starting Number:</label>
             <input type="number" id="startNum" name="startNum" min="1" class="p-2 border rounded-lg focus:ring-2 focus:ring-blue-400" required>
+            <div id="errorMsg" class="text-red-600 text-sm mt-1"></div>
 
             <div class="flex gap-4 justify-center">
                 <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
@@ -24,12 +25,20 @@
     <script>
         function validateCollatz() {
             const startNum = document.getElementById('startNum').value;
+            const errorMsg = document.getElementById('errorMsg');
+
             if (startNum === '' || isNaN(startNum) || parseInt(startNum) < 1) {
-                alert('Please enter a valid positive integer for the starting number.');
+                errorMsg.textContent = 'Please enter a valid positive integer for the starting number.';
+                return false;
+            } else if (startNum % 2 == 0) {
+                errorMsg.textContent = 'Please enter an odd number for the starting number.';
                 return false;
             }
+
+            errorMsg.textContent = '';  // Clear error if valid
             return true;
         }
+
     </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <title>Sequence Result</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gray-100 flex items-center justify-center">
+<body class="min-h-screen bg-black flex items-center justify-center">
 
 <div class="bg-white p-8 rounded-2xl shadow-lg text-center w-full max-w-md">
     <h1 class="text-2xl font-bold mb-4 text-blue-600">Sequence Result</h1>
@@ -25,7 +25,7 @@
                 } else {
                     $sequence = [];
                     if ($choice === 1) {
-                        $sequence = [1, 1];
+                        $sequence = [0, 1];
                         for ($i = 2; $i < $terms; $i++) {
                             $sequence[] = $sequence[$i-1] + $sequence[$i-2];
                         }
@@ -37,7 +37,7 @@
                         }
                         $type = "Lucas";
                     } else {
-                        $sequence = [0, 0, 1];
+                        $sequence = [0, 1, 1];
                         for ($i = 3; $i < $terms; $i++) {
                             $sequence[] = $sequence[$i-1] + $sequence[$i-2] + $sequence[$i-3];
                         }
@@ -50,7 +50,7 @@
                     }else if($choice ===2){
                         echo "The Lucas sequence is similar to the Fibonacci sequence but starts with 2 and 1 instead of 0 and 1. Each number is the sum of its two preceding numbers.";
                     }else if($choice === 3){
-                        echo "The Tribonacci sequence extends the Fibonacci rule by summing the previous three numbers to generate the next, starting typically from 0, 0, 1.";
+                        echo "The Tribonacci sequence extends the Fibonacci rule by summing the previous three numbers to generate the next, starting typically from 0, 1, 1.";
                     }
                     echo "<p class='mt-2 text-gray-700'>Number of terms: <strong>$terms</strong></p>";
                     echo "<p class='mt-4 text-gray-800'>Sequence:</p>";
