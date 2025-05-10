@@ -21,7 +21,7 @@
             <li><a href="tribonacci.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Tribonacci</a></li>
             <li><a href="collatz.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Collatz</a></li>
             <li><a href="euclidean.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Euclidean</a></li>
-            <li><a href="index.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Exit</a></li>
+            <li><a href="pascal.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Pascal Triangle</a></li>
         </ul>
     </div>
     
@@ -61,7 +61,7 @@
                 <span class="text-3xl mb-2">05</span>
                 <span class="text-lg">Pascal Triangle</span>
             </a>
-            <a href="exit.php" class="neo-button py-8 px-4 rounded-lg flex flex-col items-center col-span-2 animate-[fadeIn_1s_ease-out_1s] opacity-0" style="animation-fill-mode: forwards;">
+            <a href="index.php" class="neo-button py-8 px-4 rounded-lg flex flex-col items-center col-span-2 animate-[fadeIn_1s_ease-out_1s] opacity-0" style="animation-fill-mode: forwards;">
             <span class="text-3xl mb-2">07</span>
             <span class="text-lg">Exit</span>
         </a>

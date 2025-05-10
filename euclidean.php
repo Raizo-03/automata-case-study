@@ -65,8 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="tribonacci.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Tribonacci</a></li>
         <li><a href="collatz.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Collatz</a></li>
         <li><a href="euclidean.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Euclidean</a></li>
-        <li><a href="euclidean.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Pascal Triangle</a></li>
-        <li><a href="index.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Exit</a></li>
+        <li><a href="pascal.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Pascal Triangle</a></li>
     </ul>
 </div>
 
@@ -121,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
             <div class="mt-6 flex space-x-4">
                 <a href="euclidean.php" class="px-6 py-3 bg-cyan-500 text-black rounded-xl hover:bg-cyan-400 transition">Try Again</a>
-                <a href="index.php" class="px-6 py-3 bg-red-500 text-black rounded-xl hover:bg-red-400 transition">Exit</a>
+                <a href="menu.php" class="px-6 py-3 bg-red-500 text-black rounded-xl hover:bg-red-400 transition">Exit</a>
             </div>
         <?php } ?>
     </div>
