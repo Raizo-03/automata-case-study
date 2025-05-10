@@ -22,6 +22,7 @@
             <li><a href="collatz.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Collatz</a></li>
             <li><a href="euclidean.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Euclidean</a></li>
             <li><a href="pascal.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Pascal Triangle</a></li>
+            <li><a href="index.php" class="text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer">Exit</a></li>
         </ul>
     </div>
     
