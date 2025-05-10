@@ -2,114 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Number Sequence Menu</title>
+    <title>Automata Case Study</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
-        .typewriter h1 {
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             overflow: hidden;
-            border-right: .15em solid #2563eb;
-            white-space: nowrap;
-            letter-spacing: .1em;
-            animation: typing 3s steps(30, end), blink .75s step-end infinite;
         }
-        .donut {
-            font-family: monospace;
-            line-height: 0.8;
-            white-space: pre;
-            color: white;
-        }
-        .layout-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 0 2rem;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .futuristic-text {
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 4.5rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        .futuristic-button {
+            background: transparent;
+            border: 3px solid #00ffff; /* Slightly thicker border */
+            color: #00ffff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem; /* Increased font size */
+            padding: 1rem 2rem; /* Increased padding for larger button */
+            border-radius: 12px; /* Slightly larger border radius */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+        .futuristic-button:hover {
+            transform: scale(1.1);
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgb(234, 241, 241);
         }
     </style>
 </head>
-<body class="min-h-screen bg-black"> 
-    <div class="layout-container">
-        <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md text-center my-8">
-            <div class="typewriter mb-6">
-                <h1 class="text-2xl font-bold text-black-700">AUTOMATA CASE STUDY</h1>
-            </div>
-            <form method="POST" action="menu.php">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
-                    Start
-                </button>
-            </form>
-        </div>
-        <div class="donut text-white text-sm" id="donut"></div>
+<body class="bg-black flex items-center justify-center">
+
+    <!-- 🔥 VIDEO BACKGROUND -->
+    <video id="background" autoplay muted loop playsinline>
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+
+    <!-- 🚀 CENTERED CONTENT -->
+    <div class="flex flex-col items-center space-y-6">
+        <h1 class="futuristic-text">AUTOMATA CASE STUDY</h1>
+        <form method="POST" action="menu.php">
+            <button type="submit" class="futuristic-button">
+                Start
+            </button>
+        </form>
     </div>
-
-<script>
-    const preTag = document.getElementById('donut');
-    let A = 0, B = 0;
-    const render = () => {
-        let b = [], z = [];
-        const screenWidth = 60, screenHeight = 44;  // Increased size
-        const thetaSpacing = 0.07, phiSpacing = 0.02;
-        const R1 = 1, R2 = 2, K2 = 5;
-        const K1 = screenWidth * K2 * 3 / (8 * (R1 + R2));
-
-        b.length = 0;
-        z.length = 0;
-
-        for (let k = 0; k < screenWidth * screenHeight; k++) {
-            b[k] = ' ';
-            z[k] = 0;
-        }
-
-        for (let j = 0; j < 6.28; j += thetaSpacing) {
-            for (let i = 0; i < 6.28; i += phiSpacing) {
-                const sinA = Math.sin(A), cosA = Math.cos(A);
-                const sinB = Math.sin(B), cosB = Math.cos(B);
-                const sintheta = Math.sin(j), costheta = Math.cos(j);
-                const sinphi = Math.sin(i), cosphi = Math.cos(i);
-
-                const circlex = R2 + R1 * costheta;
-                const circley = R1 * sintheta;
-                const x = circlex * (cosB * cosphi + sinA * sinB * sinphi) - circley * cosA * sinB;
-                const y = circlex * (sinB * cosphi - sinA * cosB * sinphi) + circley * cosA * cosB;
-                const zcoord = K2 + cosA * circlex * sinphi + circley * sinA;
-                const ooz = 1 / zcoord;
-                const xp = Math.floor(screenWidth / 2 + K1 * ooz * x);
-                const yp = Math.floor(screenHeight / 2 - K1 * ooz * y);
-                const idx = xp + screenWidth * yp;
-                const L = cosphi * costheta * sinB - cosA * costheta * sinphi - sinA * sintheta + cosB * (cosA * sintheta - costheta * sinA * sinphi);
-
-                if (yp >= 0 && yp < screenHeight && xp >= 0 && xp < screenWidth && L > 0) {
-                    if (ooz > z[idx]) {
-                        z[idx] = ooz;
-                        const luminance_index = Math.floor(L * 8);
-                        const chars = ".,-~:;=!*#$@";
-                        b[idx] = chars[luminance_index > 0 ? luminance_index : 0];
-                    }
-                }
-            }
-        }
-
-        let output = '';
-        for (let k = 0; k < b.length; k++) {
-            output += b[k];
-            if ((k + 1) % screenWidth === 0) output += '\n';
-        }
-        preTag.textContent = output;
-        A += 0.02;  // Slower donut animation
-        B += 0.01;  // Slower donut animation
-        requestAnimationFrame(render);
-    };
-
-    render();
-</script>
 
 </body>
 </html>

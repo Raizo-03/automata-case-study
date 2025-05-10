@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+}
+.nav-bar {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #0ef;
+    box-shadow: 0 0 15px #0ef;
+    backdrop-filter: blur(5px);
+}
+.nav-bar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-bar a:hover {
+    color: #0ef;
+    border-bottom: 2px solid #0ef;
+}
+
+
+.neo-button {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0ef;
+    color: #0ef;
+    text-shadow: 0 0 5px #0ef;
+    box-shadow: 0 0 10px #0ef;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.neo-button:hover {
+    background: rgba(0, 14, 255, 0.2);
+    box-shadow: 0 0 20px #0ef;
+    transform: translateY(-2px);
+}
+
+.neo-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(transparent, rgba(0, 238, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px #0ef; }
+    50% { box-shadow: 0 0 20px #0ef; }
+    100% { box-shadow: 0 0 5px #0ef; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.title-text {
+    font-weight: bold;
+    background: linear-gradient(to right, #0ef, #00f, #0ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0, 238, 255, 0.5);
+    animation: colorShift 5s infinite linear;
+    background-size: 200% auto;
+}
+
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
