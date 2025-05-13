@@ -7,7 +7,24 @@ $triangle = [];
 function generatePascalTriangle($rows) {
     $triangle = [];
     
-    for ($i = 0; $i < $rows; $i++) {
+    // For input 0, return just row 0 (which is [1])
+    $triangle[0] = [1];
+    
+    // If user wants just the first row (input 0), return only row 0
+    if ($rows == 0) {
+        return $triangle;
+    }
+    
+    // For input 1, add row 1 which is [1,1]
+    $triangle[1] = [1, 1];
+    
+    // If user wants just two rows (input 1), return rows 0 and 1
+    if ($rows == 1) {
+        return $triangle;
+    }
+    
+    // Generate the rest of the rows (starting from row 2)
+    for ($i = 2; $i <= $rows; $i++) {
         $triangle[$i] = [];
         $triangle[$i][0] = 1;  // First element of each row is 1
 
@@ -28,11 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the user input for rows
     $numRows = intval($_POST["numRows"]);
 
-    // Check if the number of rows is a positive integer
-    if ($numRows <= 0) {
-        $error = "⚠ Error: Please enter a positive number of rows.";
+    // Check if the number of rows is a negative integer
+    if ($numRows < 0) {
+        $error = "⚠ Error: Please enter a non-negative number of rows.";
     } else {
-        // Generate Pascal's Triangle
+        // Generate Pascal's Triangle (numRows+1 because we count from 0)
         $triangle = generatePascalTriangle($numRows);
     }
 }
@@ -46,8 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
 </head>
-<body class="min-h-screen bg-black">
+<body class="min-h-screen bg-black overflow-y-auto">
 <video id="background" autoplay muted loop playsinline>
     <source src="menubg.mp4" type="video/mp4">
 </video>
@@ -77,6 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-lg text-white">
                 Pascal's Triangle is a triangular array of binomial coefficients. Each number is the sum of the two numbers directly above it.
             </p>
+            <p class="text-lg text-white mt-4">
+                • Input 0: Shows row 0 (a single 1)<br>
+                • Input 1: Shows rows 0 and 1 (the first two rows)<br>
+                • Each higher input: Shows that many rows starting from row 0
+            </p>
         </div>
 
         <!-- Right Box: Input -->
@@ -89,7 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
-
     <!-- Result Box -->
     <div class="w-full max-w-7xl mt-10 p-8 bg-black bg-opacity-70 border border-cyan-400 rounded-2xl shadow-xl backdrop-blur animate-[fadeIn_1s_ease-out]">
         <h2 class="text-3xl text-cyan-400 mb-4">Pascal's Triangle</h2>
