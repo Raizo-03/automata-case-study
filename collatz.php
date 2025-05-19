@@ -33,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="min-h-screen bg-black">
 <video id="background" autoplay muted loop playsinline>
     <source src="menubg.mp4" type="video/mp4">
+    <source src="menubg.webm" type="video/webm">
+
 </video>
 
 <div class="nav-bar fixed w-full top-0 z-10 flex justify-center">

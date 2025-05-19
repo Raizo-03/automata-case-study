@@ -59,9 +59,10 @@
 <body class="bg-black flex items-center justify-center">
 
     <!-- 🔥 VIDEO BACKGROUND -->
-    <video id="background" autoplay muted loop playsinline>
-        <source src="bg.mp4" type="video/mp4">
-    </video>
+<video id="background" autoplay muted loop playsinline>
+    <source src="bg.webm" type="video/webm">
+    <source src="bg.mp4" type="video/mp4">
+</video>
 
     <!-- 🚀 CENTERED CONTENT -->
     <div class="flex flex-col items-center space-y-6">

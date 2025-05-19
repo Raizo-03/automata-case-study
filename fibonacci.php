@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-black">
-    <video id="background" autoplay muted loop playsinline>
-        <source src="menubg.mp4" type="video/mp4">
-    </video>
+<video id="background" autoplay muted loop playsinline>
+    <source src="menubg.mp4" type="video/mp4">
+    <source src="menubg.webm" type="video/webm">
+</video>
 
     <div class="nav-bar fixed w-full top-0 z-10 flex justify-center">
         <ul class="flex space-x-6 py-4 px-6">

@@ -9,9 +9,11 @@
 </head>
 <body class="min-h-screen bg-black">
     <!-- Video Background -->
-    <video id="background" autoplay muted loop playsinline>
-        <source src="menubg.mp4" type="video/mp4">
-    </video>
+<video id="background" autoplay muted loop playsinline>
+    <source src="menubg.mp4" type="video/mp4">
+    <source src="menubg.webm" type="video/webm">
+
+</video>
     
     <!-- Navigation Bar -->
     <div class="nav-bar fixed w-full top-0 z-10 flex justify-center">
